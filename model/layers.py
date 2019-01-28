@@ -1,8 +1,8 @@
 
 import torch
 from torch import nn
-from torch.autograd import Variable
 import torch.nn.functional as F
+from torch.autograd import Variable
 
 class CHighwayLayer(nn.Module):
     def __init__(self, idim, odim, param_init = 0.):

@@ -4,8 +4,9 @@ from __future__ import division
 import os
 import codecs
 import collections
-import numpy as np
 import pickle
+
+import numpy as np
 
 
 class Vocab:
@@ -111,7 +112,7 @@ def load_data(data_dir, max_word_length, fname_list, eos='+'):
         char_tensors[fname] = np.zeros([len(char_tokens[fname]), actual_max_word_length], dtype=np.int64)
 
         for i, char_array in enumerate(char_tokens[fname]):
-            char_tensors[fname] [i,:len(char_array)] = char_array
+            char_tensors[fname][i, :len(char_array)] = char_array
 
     return word_vocab, char_vocab, word_tensors, char_tensors, actual_max_word_length
 
@@ -135,11 +136,11 @@ class DataReader:
         ydata[-1] = word_tensor[0].copy()
 
         x_batches = char_tensor.reshape([batch_size, -1, num_unroll_steps, max_word_length])
-        #x_batches = word_tensor.reshape([batch_size, -1, num_unroll_steps])
+        # x_batches = word_tensor.reshape([batch_size, -1, num_unroll_steps])
         y_batches = ydata.reshape([batch_size, -1, num_unroll_steps])
 
         x_batches = np.transpose(x_batches, axes=(1, 0, 2, 3))
-        #x_batches = np.transpose(x_batches, axes = (1, 0, 2))
+        # x_batches = np.transpose(x_batches, axes=(1, 0, 2))
         y_batches = np.transpose(y_batches, axes=(1, 0, 2))
 
         self._x_batches = list(x_batches)

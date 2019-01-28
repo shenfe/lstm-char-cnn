@@ -1,3 +1,4 @@
+#!/bin/bash
 
 HDIM=650
 WEDIM=128
@@ -9,7 +10,7 @@ MAXEPOCH=40
 BATCH=20
 DROP=0.5
 
-CUDA_VISIBLE_DEVICES=3 python3 main.py \
+python main.py \
 	-mepoch $MAXEPOCH \
 	-msteps $MAXSTEP \
 	-hdim $HDIM \
@@ -26,4 +27,4 @@ CUDA_VISIBLE_DEVICES=3 python3 main.py \
 	-drop $DROP \
 	-clip 0.25 \
 	-lr_decay 0.5 \
-	-cuda 
+	# -cuda 

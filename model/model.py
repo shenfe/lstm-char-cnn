@@ -1,8 +1,9 @@
 
 import torch
-import torch.nn as nn
+from torch import nn
 from torch.autograd import Variable
-from .layers import CHighwayLayer, CConvLayer
+
+from layers import CHighwayLayer, CConvLayer
 
 
 class CHighway(nn.Module):

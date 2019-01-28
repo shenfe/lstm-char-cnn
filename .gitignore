@@ -1,0 +1,12 @@
+.idea
+.vscode
+
+.DS_Store
+
+__pycache__
+*.pyc
+
+Pipfile*
+
+train_dir
+model_dir

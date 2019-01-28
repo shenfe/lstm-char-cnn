@@ -1,11 +1,11 @@
 
-import torch
 import time
 import math
 
+import torch
+from torch.nn import functional as F
 from torch.nn.utils import clip_grad_norm
 from torch.autograd import Variable
-from torch.nn import functional as F
 
 
 def repackage_hidden(h): # todo
